@@ -36,7 +36,7 @@ conda activate loopfree
 pip3 install -r requirements.txt
 ```
 
-### Inference:
+### Inference
 
 ```
 # Loopfree SD1.5
