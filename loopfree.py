@@ -74,12 +74,8 @@ def predict_original(unet, scheduler, latents, prompt_embeds, register_store):
 def main(args):
     device, dtype = "cuda", torch.float16
 
-    unet = UNet2DConditionModel.from_pretrained(args.student_pretrained_model_name_or_path, torch_dtype=dtype)
-    vae = AutoencoderKL.from_pretrained(args.pretrained_model_name_or_path, subfolder="vae", torch_dtype=torch.float32)
     scheduler = DDIMScheduler.from_pretrained(args.pretrained_model_name_or_path, subfolder="scheduler")
-    pipe = DiffusionPipeline.from_pretrained(args.pretrained_model_name_or_path, scheduler=scheduler, torch_dtype=dtype,
-                                             unet=unet)
-    vae = vae.to(device)
+    pipe = DiffusionPipeline.from_pretrained(args.pretrained_model_name_or_path, scheduler=scheduler, torch_dtype=dtype)
     pipe = pipe.to(device)
 
     register_store = {'se_step': None, 'skip_feature': None, 'mid_feature': None, 'lora_scale': None,
@@ -100,7 +96,7 @@ def main(args):
     for i, prompt in enumerate(prompts):
         generator = (torch.Generator(device=device).manual_seed(args.seed) if args.seed else None)
         encoded_embeds = encode_prompt(pipe, prompt)
-        image = inference(vae, pipe.unet, scheduler, encoded_embeds, generator, device, dtype, register_store)
+        image = inference(pipe.vae, pipe.unet, scheduler, encoded_embeds, generator, device, dtype, register_store)
         image_array = np.asarray(image).astype(np.uint8)
         image = Image.fromarray(np.transpose(image_array, (1, 2, 0)))
         image.save(f"{output_dir}/{i:05}.png")
@@ -110,13 +106,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Simple example of an inference script.")
     parser.add_argument(
         "--pretrained_model_name_or_path",
-        type=str,
-        default=None,
-        required=True,
-        help="Path to pretrained model or model identifier from huggingface.co/models.",
-    )
-    parser.add_argument(
-        "--student_pretrained_model_name_or_path",
         type=str,
         default=None,
         required=True,

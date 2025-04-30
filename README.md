@@ -40,14 +40,12 @@ pip3 install -r requirements.txt
 
 ```
 # Loopfree SD1.5
-python loopfree.py --pretrained_model_name_or_path stable-diffusion-v1-5/stable-diffusion-v1-5 \
-                   --student_pretrained_model_name_or_path senmaonk/loopfree-sd1.5/unet \
+python loopfree.py --pretrained_model_name_or_path senmaonk/loopfree-sd1.5 \
                    --output_dir loopfree-sd1.5 --use_parallel
 ```
 
 ```
 # Loopfree SD2.1-Base
-python loopfree.py --pretrained_model_name_or_path stabilityai/stable-diffusion-2-1-base \
-                   --student_pretrained_model_name_or_path senmaonk/loopfree-sd2.1-base \
+python loopfree.py --pretrained_model_name_or_path senmaonk/loopfree-sd2.1-base \
                    --output_dir loopfree-sd2.1-base --use_parallel
 ```
