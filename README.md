@@ -8,8 +8,12 @@
 
 Above a certain threshold of steps, such as 15 steps in SD2.1, the model maintains image generation quality (Fig.a-b) while the features show high similarity (Fig.c). Below this threshold, feature similarity deteriorates along with worse generation quality, accompanied by a degradation in image generation quality as sampling steps reduce. Furthermore, the encoder features consistently exhibit higher similarity than the decoder across all sampling steps (Fig.c). Additionally, the decoder feature always shows much higher variations than encoder (Fig.c).
 
+Hance we use a novel design with 1-step encoder and a 4-step decoder (Time-independent Unified Encoder architecture), achieving near 1-step inference. Since the 4-step decoder captures richer semantics, ours aligns the generation quality with multi-step DMs.
 
-Hance we use a novel design with 1-step encoder and a 4-step decoder, achieving near 1-step inference. Since the 4-step decoder captures richer semantics, ours aligns the generation quality with multi-step DMs.
+---
+
+<img src="assets/loopfree.jpg" width="1000px"/>
+Building on our Time-independent Unified Encoder (TiUE) architecture, we introduce a loop-free distillation approach. 
 
 ### Update
 - **2025.04.22**: Release the pre-trained models for [Loopfree SD1.5](https://huggingface.co/senmaonk/loopfree-sd1.5) and [Loopfree SD2.1-Base](https://huggingface.co/senmaonk/loopfree-sd2.1-base), and inference code. 😀
