@@ -10,7 +10,6 @@ Above a certain threshold of steps, such as 15 steps in SD2.1, the model maintai
 
 Hance we use a novel design with 1-step encoder and a 4-step decoder (Time-independent Unified Encoder architecture), achieving near 1-step inference. Since the 4-step decoder captures richer semantics, ours aligns the generation quality with multi-step DMs.
 
----
 
 <img src="assets/loopfree.jpg" width="1000px"/>
 Building on our Time-independent Unified Encoder (TiUE) architecture, we introduce a loop-free distillation approach. 
