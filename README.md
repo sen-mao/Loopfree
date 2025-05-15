@@ -1,6 +1,6 @@
 ## Official Implementations "One-Way Ticket : Time-Independent Unified Encoder for Distilling Text-to-Image Diffusion Models" (CVPR'25)
 
-![Visitors](https://visitor-badge.laobi.icu/badge?page_id=sen-mao/Loopfree)
+[![arXiv](https://img.shields.io/badge/中译版-Loopfree-b31b1b.svg)](https://drive.google.com/file/d/1CenAPN9qPvBhDCc0Za6Fx6yXGXZCMpst/view?usp=sharing) ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=sen-mao/Loopfree ) 
 
 <img src="assets/teaser.jpg" width="1000px"/>
 
