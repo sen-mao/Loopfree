@@ -18,12 +18,13 @@ Hence, we use a novel design with 1-step encoder and a 4-step decoder (Time-inde
 Building on our Time-independent Unified Encoder (TiUE) architecture, we introduce a loop-free distillation approach. 
 
 ### Update
+- **2025.05.16**: Release training code. 
 - **2025.04.22**: Release the pre-trained models for [Loopfree SD1.5](https://huggingface.co/senmaonk/loopfree-sd1.5) and [Loopfree SD2.1-Base](https://huggingface.co/senmaonk/loopfree-sd2.1-base), and inference code. 😀
 - **2025.03.15**: This repo is created.
 
 ### TODO
 - [x] Release inference code and weight
-- [ ] Release training code
+- [x] Release training code
 
 ---
 
@@ -55,3 +56,16 @@ python loopfree.py --pretrained_model_name_or_path senmaonk/loopfree-sd1.5 \
 python loopfree.py --pretrained_model_name_or_path senmaonk/loopfree-sd2.1-base \
                    --output_dir loopfree-sd2.1-base --use_parallel
 ```
+
+### Training
+In [JourneyDB datasets](https://journeydb.github.io/), there are 4M (4,189,737) captions in the training sets. 
+We remove duplicate captions from the training set, leaving [1,418,723 unique captions](https://drive.google.com/file/d/1Qi4SyojlUpGPPwYgvZMUM6dyuZdSaZIv/view?usp=sharing) (1.4M). These captions are used as prompts to train the student generator.
+
+Simply run the following command to train a Loopfree model (SD2.1):
+
+```
+bash train_loopfree.sh
+```
+
+Note: The results in the paper do not use CLIP loss for aligning the text prompt with the generated image. To enable explicit alignment, use `--lambda_textcliploss 0.35`.
+The released pre-trained models are further fine-tuned by adding CLIP loss for an additional 10k iterations.

@@ -22,5 +22,5 @@
    --mixed_precision "fp16" \
    --use_parallel \
    --num_inference_steps 4 \
-   --lambda_textcliploss 0.35 \
+   --lambda_textcliploss 0 \
    --output_dir train-loopfree
