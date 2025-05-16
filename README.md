@@ -69,3 +69,14 @@ bash train_loopfree.sh
 
 Note: The results in the paper do not use CLIP loss for aligning the text prompt with the generated image. To enable explicit alignment, use `--lambda_textcliploss 0.35`.
 The released pre-trained models are further fine-tuned by adding CLIP loss for an additional 10k iterations.
+
+### License
+
+Licensed under a [Creative Commons Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/) for Non-commercial use only.
+Any commercial use should get formal permission first.
+
+### Acknowledgement
+
+This project is based on [SwiftBrush](https://github.com/VinAIResearch/SwiftBrush). Thanks for their awesome works.
+### Contact
+If you have any questions, please feel free to reach out to me at  `senmaonk@gmail.com`. 
