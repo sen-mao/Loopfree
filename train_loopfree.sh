@@ -1,5 +1,5 @@
  # Loopfree SD2.1
- accelerate launch --multi_gpu --num_processes 8 --gpu_ids='0,1,2,3,4,5,6,7' _train_loopfreev2_textclip_swiftbrushv2_.py \
+ accelerate launch --multi_gpu --num_processes 8 --gpu_ids='0,1,2,3,4,5,6,7' train_loopfree.py \
    --pretrained_model_name_or_path "stabilityai/stable-diffusion-2-1-base" \
    --student_pretrained_model_name_or_path "stabilityai/stable-diffusion-2-1-base" \
    --vae_tiny_name_or_path "madebyollin/taesd" \
