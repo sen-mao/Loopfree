@@ -324,7 +324,7 @@ def parse_args(input_args=None):
     parser.add_argument('--use_parallel', action="store_true", help="if use parallel encoder share for training")
 
     parser.add_argument('--lambda_kl', type=float, default=0.1, help="weight of KL loss")
-    parser.add_argument('--lambda_textcliploss', type=float, default=0.35, help="weight of CLIP loss")
+    parser.add_argument('--lambda_textcliploss', type=float, default=0.0, help="weight of CLIP loss")
     parser.add_argument('--dataset', type=str, default='JDB', help="1.4M JDB, 2M LAION or MIX")
 
     if input_args is not None:
