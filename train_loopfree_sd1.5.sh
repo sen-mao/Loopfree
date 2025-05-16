@@ -1,0 +1,26 @@
+ # Loopfree SD1.5
+ accelerate launch --multi_gpu --num_processes 8 --gpu_ids='0,1,2,3,4,5,6,7' train_loopfre.py \
+   --pretrained_model_name_or_path "runwayml/stable-diffusion-v1-5" \
+   --student_pretrained_model_name_or_path "runwayml/stable-diffusion-v1-5" \
+   --vae_tiny_name_or_path "madebyollin/taesd" \
+   --clip_pretrained_model_name_or_path "openai/clip-vit-base-patch32" \
+   --resolution 512 \
+   --use_ema \
+   --validation_prompts "A racoon wearing formal clothes, wearing a tophat. Oil painting in the style of Rembrandt" "a zoomed out DSLR photo of a hippo biting through a watermelon" "a lanky tall alien on a romantic date at italian restaurant with a smiling woman, nice restaurant, photography, bokeh" "A brown and white dog running through water"\
+   --validation_steps 500 \
+   --train_batch_size 8 \
+   --gradient_accumulation_steps 1 \
+   --set_grads_to_none \
+   --guidance_scale 4.5 \
+   --learning_rate 1.e-06 \
+   --learning_rate_lora 1.e-03 \
+   --lr_scheduler "constant" --lr_warmup_steps 0 \
+   --lora_rank 64 --lora_alpha 108 \
+   --num_train_epochs 3 \
+   --checkpointing_steps 10000 \
+   --gradient_checkpoint \
+   --mixed_precision "fp16" \
+   --use_parallel \
+   --num_inference_steps 4 \
+   --lambda_textcliploss 0 \
+   --output_dir train-loopfree-sd1.5
