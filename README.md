@@ -80,6 +80,13 @@ If our work is useful for your research, please consider citing:
           year={2025},
     }
 
+    @article{wang2026wadi,
+          title={WaDi: Weight Direction-aware Distillation for One-step Image Synthesis},
+          author={Wang, Lei and Cheng, Yang and Li, Senmao and Wu, Ge and Wang, Yaxing and Yang, Jian},
+          journal={arXiv preprint arXiv:2603.08258},
+          year={2026}
+    }
+
 ### License
 
 Licensed under a [Creative Commons Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/) for Non-commercial use only.
